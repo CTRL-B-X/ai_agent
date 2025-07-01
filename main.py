@@ -35,11 +35,17 @@ def main():
         contents=messages,
     )
 
+    if verbose:
+        print(f"User prompt: {user_prompt}")
+        usage = response.usage_metadata
+        print(f"Prompt tokens: {usage.prompt_token_count}")
+        print(f"Response tokens: {usage.candidates_token_count}")
+
     print(response.text)
 
     usage = response.usage_metadata
-    print(f"Prompt tokens: {usage.prompt_token_count}")
-    print(f"Response tokens: {usage.candidates_token_count}")
+  #  print(f"Prompt tokens: {usage.prompt_token_count}")
+  #  print(f"Response tokens: {usage.candidates_token_count}")
 
 if __name__ == "__main__":
     main()
